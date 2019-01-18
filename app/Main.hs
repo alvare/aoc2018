@@ -1,6 +1,11 @@
 module Main where
 
-import qualified AOC2018
+import qualified Day2
+import qualified Day3
 
 main :: IO ()
-main = AOC2018.main
+main = do
+  putStrLn "\nDay 2:\n======"
+  Day2.main
+  putStrLn "\nDay 3:\n======"
+  Day3.main

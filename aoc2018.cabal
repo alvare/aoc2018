@@ -16,11 +16,17 @@ cabal-version:       >=1.10
 library
   hs-source-dirs:      src
   ghc-options:         -Wall
-  exposed-modules:     AOC2018
+  exposed-modules:     Day2
+                     , Day3
   build-depends:       base >= 4.7 && < 5
                      , vector
+                     , text
                      , bytestring
+                     , primitive
   default-language:    Haskell2010
+  default-extensions:  OverloadedStrings
+                     , LambdaCase
+                     , RankNTypes
 
 executable aoc2018
   hs-source-dirs:      app
@@ -34,9 +40,12 @@ test-suite aoc2018-test
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
   main-is:             Spec.hs
+  other-modules:       Day3Spec
   build-depends:       base
                      , aoc2018
                      , hspec
                      , QuickCheck
+                     , vector
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N -Wall
   default-language:    Haskell2010
+  default-extensions:  OverloadedStrings

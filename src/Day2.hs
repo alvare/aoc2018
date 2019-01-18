@@ -1,5 +1,4 @@
-{-# LANGUAGE OverloadedStrings #-}
-module AOC2018 where
+module Day2 where
 
 import           Control.Monad (mapM_)
 import           Data.Char (ord)
@@ -7,13 +6,12 @@ import           Data.List (find, foldl')
 import           Data.Vector (Vector)
 import qualified Data.Vector as V
 import qualified Data.Vector.Mutable as M
---import qualified Data.ByteString as B
 import           Data.ByteString.Char8 (ByteString)
 import qualified Data.ByteString.Char8 as B
 
 main :: IO ()
 main = do
-  input <- B.readFile "data/input.txt"
+  input <- B.readFile "data/day2.txt"
 
   putStrLn "Hash:"
   putStrLn . show $ hashIds input
@@ -57,4 +55,6 @@ combinations strings = concat $ V.imap (\i e ->
   zip (repeat e) (V.toList . V.drop (i + 1) $ strings)) strings
 
 differByOne :: (ByteString, ByteString) -> Bool
-differByOne (l, r) = all (<=1) . scanl (\c e -> if e then c else c + 1) 0 . map (uncurry (==)) $ B.zip l r
+differByOne (l, r) = all (<=1) .
+                     scanl (\c e -> if e then c else c + 1) (0 :: Int) .
+                     map (uncurry (==)) $ B.zip l r
