@@ -3,7 +3,7 @@ module Day3Spec where
 import Test.Hspec
 import Test.QuickCheck
 
-import qualified Data.Vector.Mutable as M
+import qualified Data.Vector.Unboxed.Mutable as M
 
 import Day3
 
