@@ -2,6 +2,7 @@ module Main where
 
 import qualified Day2
 import qualified Day3
+import qualified Day4
 
 main :: IO ()
 main = do
